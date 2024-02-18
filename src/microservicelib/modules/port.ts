@@ -1,11 +1,11 @@
 import { ports } from '../cache/ports'
 import { debug } from '../debug'
 
-const MIN_PORT = 11111
-const MAX_PORT = 65535 
-
 export const port = {
   generate: () => {
+    const MIN_PORT = Number(process.env.MIN_PORT)
+    const MAX_PORT = Number(process.env.MAX_PORT)
+
     const startTime = debug.time.start()
     ;
       let speculativePort = Math.floor(Math.random() * (MAX_PORT - MIN_PORT + 1) ) + MIN_PORT

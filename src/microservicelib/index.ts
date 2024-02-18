@@ -4,7 +4,7 @@ import { service } from "./modules/service"
 
 export const microservice = {
   new: async (callback: (req: Request, res: Response) => void) => {
-    return await service.new((req, res) => callback(req, res))
+    return await service.new(async (req, res) => await callback(req, res))
   },
 
   get: async (input: {
